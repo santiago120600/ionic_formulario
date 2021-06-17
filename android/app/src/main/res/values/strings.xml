@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">almacen_app</string>
+    <string name="title_activity_main">almacen_app</string>
+    <string name="package_name">almacen.swcatorce.upsrj</string>
+    <string name="custom_url_scheme">almacen.swcatorce.upsrj</string>
+</resources>

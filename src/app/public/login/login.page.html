@@ -1,0 +1,19 @@
+<ion-content padding >
+    <form action="">
+    <ion-card>
+        <ion-card-content>
+            <ion-item>
+                <ion-label>Email:</ion-label>
+                <ion-input name="pEmail" [(ngModel)]="user.pEmail"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Password:</ion-label>
+                <ion-input name="pPassword" type="password" [(ngModel)]="user.pPassword"></ion-input>
+            </ion-item>
+        </ion-card-content>
+        <ion-card-header>
+          <ion-button color="primary" (click)="do_login();">Autenticar</ion-button>
+        </ion-card-header>
+    </ion-card>
+    </form>
+</ion-content>
