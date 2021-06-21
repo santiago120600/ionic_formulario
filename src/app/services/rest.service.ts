@@ -12,7 +12,7 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class RestService {
-  apiUrl = "http://192.168.0.11/alfredo_services_sw14/index.php/";
+  apiUrl = "http://localhost/examen_services_sw14/index.php/";
   private httpClientFiles: HttpClient;
   public authState =  new BehaviorSubject(false);
 
@@ -53,6 +53,30 @@ export class RestService {
       loading.dismiss();
     });
   }
+
+  async cita(_data : any){
+    const loading = await this.loadingController.create({
+      message: 'Registrando...'
+    });
+    await loading.present();
+    console.info(this.apiUrl);
+    return this.http.post<any>(this.apiUrl+"users/api/cita",_data).subscribe(result =>{
+      loading.dismiss();
+      if(result.status_text == "success"){
+          this.display_toast('Success',"success",result.message,'top',4000);
+      }else if(result.status_text=="error"){
+          this.display_toast('Error',"danger",result.message,'top',4000);
+      }else{
+          this.display_toast('Error',"danger","Error de comunicación, intente más tarde",'top',4000);
+      }
+    },(err) => {
+      console.info(err);
+      this.display_toast('Error',"danger","Error de comunicación, intente más tarde",'top',4000);
+      loading.dismiss();
+    });
+  }
+
+
   post_method(_uri : string,_data : any){
     return this.http.post<any>(this.apiUrl+_uri,_data);
   }

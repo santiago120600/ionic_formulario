@@ -9,3 +9,70 @@
 <ion-content [fullscreen]="true">
     <ion-button (click)="close_sess()" color="primary">Cerrar sesión</ion-button>
 </ion-content>
+
+
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-sm="6" size-md="6" size-lg="12" size="12" color="primary"> 
+      <ion-card>
+        <form (ngSubmit)="save_cita();" [formGroup]="citaForm">
+          <ion-card-content>
+              <!-- input -->
+              <ion-item>
+                <ion-label position="floating">Nombre paciente:</ion-label>
+                <ion-input type="text" formControlName="pName"></ion-input>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pName.invalid">
+                <ion-text color="danger">Nombre requerido.</ion-text>
+              </div>
+              <!-- input -->
+              <ion-item>
+                <ion-label position="floating">Nombre doctor:</ion-label>
+                <ion-input type="text" formControlName="pDoc"></ion-input>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pDoc.invalid">
+                <ion-text color="danger">Nombre  doctor requerido.</ion-text>
+              </div>
+              <!-- input -->
+              <ion-item>
+                <ion-label>Fecha lanzamiento:</ion-label>
+                <ion-datetime displayFormat="YYYY-MM-DD" formControlName="pDate"></ion-datetime>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pDate.invalid">
+                <ion-text color="danger">Fecha  requerida.</ion-text>
+              </div>
+              <!-- input -->
+              <ion-item>
+                <ion-label>Hora:</ion-label>
+                <ion-datetime displayFormat="HH:mm" formControlName="pTime"></ion-datetime>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pTime.invalid">
+                <ion-text color="danger">Hora requerida.</ion-text>
+              </div>
+              <!-- input -->
+              <ion-item>
+                <ion-label position="floating">Padecimiento:</ion-label>
+                <ion-input type="text" formControlName="pPadecimiento"></ion-input>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pPadecimiento.invalid">
+                <ion-text color="danger">Padecimiento requerido.</ion-text>
+              </div>
+              <!-- input -->
+              <ion-item>
+                <ion-label position="floating">Notas:</ion-label>
+                <ion-input type="text" formControlName="pNotes"></ion-input>
+              </ion-item>
+              <div class="ion-text-end" *ngIf="form_sent && citaForm.controls.pNotes.invalid">
+                <ion-text color="danger">notas requerido.</ion-text>
+              </div>
+          </ion-card-content>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-button expand="block" fill="outline" type="submit">Registrar</ion-button>
+            </ion-col>
+          </ion-row>
+          </form>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
